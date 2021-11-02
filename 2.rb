@@ -41,7 +41,7 @@ while flag==0 do
         end
         break if item != "0"        
     }
-
+    md5.reset
     if flag ==1
         puts counter
     else
