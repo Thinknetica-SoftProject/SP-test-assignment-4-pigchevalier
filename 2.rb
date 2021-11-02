@@ -16,3 +16,35 @@
 #
 ## Решение:
 
+require 'digest'
+
+input = gets
+input.chomp
+
+flag=0
+
+counter = 1
+
+md5 = Digest::MD5.new
+
+while flag==0 do
+    stringToHash = input+counter.to_s
+    md5 << stringToHash
+    hash = md5.hexdigest
+    startHash = hash[0..4]
+
+    startHash.each_char { |item|
+        if item=="0"
+            flag=1
+        else
+            flag=0
+        end
+        break if item != "0"        
+    }
+
+    if flag ==1
+        puts counter
+    else
+        counter+=1
+    end
+end

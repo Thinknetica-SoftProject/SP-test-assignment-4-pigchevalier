@@ -17,5 +17,24 @@
 ## Решение:
 
 
+mode = "r"
 
+current_path = File.dirname(__FILE__)
+file_path = current_path + "/data/1.txt"
+file = File.open(file_path, mode)
 
+instructions = file.read
+
+floor = 0; 
+
+instructions.each_char { |item|
+    if item == "("
+        floor+=1
+    elsif item ==")"
+        floor-=1
+    end
+}
+
+puts floor
+
+file.close

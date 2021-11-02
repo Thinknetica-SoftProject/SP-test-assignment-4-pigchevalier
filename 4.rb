@@ -17,3 +17,31 @@
 ## Решение:
 
 
+mode = "r"
+
+current_path = File.dirname(__FILE__)
+file_path = current_path + "/data/4.txt"
+file = File.open(file_path, mode)
+
+instructions = file.readlines
+summ=0
+
+for i in instructions
+    mass = i.split("x")
+    pl = [mass[0].to_i*mass[1].to_i,mass[0].to_i*mass[2].to_i,mass[1].to_i*mass[2].to_i]
+    min = pl[0].to_i
+    pl.each{ |item|
+        if item.to_i < min
+            min = item.to_i
+        end
+    }
+
+    pli = 2*pl[0] + 2*pl[1] +2*pl[2] + min
+    summ += pli
+
+end
+
+puts summ
+
+
+file.close
