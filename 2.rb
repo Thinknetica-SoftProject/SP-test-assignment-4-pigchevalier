@@ -19,7 +19,7 @@
 require 'digest'
 
 input = gets
-input.chomp
+
 
 flag=0
 
@@ -28,7 +28,7 @@ counter = 1
 md5 = Digest::MD5.new
 
 while flag==0 do
-    stringToHash = input+counter.to_s
+    stringToHash = input.chomp+counter.to_s
     md5 << stringToHash
     hash = md5.hexdigest
     startHash = hash[0..4]
